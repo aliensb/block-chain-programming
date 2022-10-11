@@ -13,7 +13,8 @@ import (
 const Difficulty = 12
 
 type ProofOfWork struct {
-	Block  *Block
+	Block *Block
+	//Target is a number that start with multiple zeros
 	Target *big.Int
 }
 
@@ -52,6 +53,7 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 		hash = sha256.Sum256(data)
 		fmt.Printf("\r%x -> %d", hash, nonce)
 		intiHash.SetBytes(hash[:])
+		//if initHash is less than target, then initHash has meat the required zeros at start
 		if intiHash.Cmp(pow.Target) == -1 {
 			fmt.Printf("\ntarget is %x", pow.Target)
 			break

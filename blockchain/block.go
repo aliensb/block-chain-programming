@@ -36,6 +36,7 @@ func (b *Block) DeriveHash() {
 }
 
 func (chain *Blockchain) AddBlock(data string) {
+	//find the latest block
 	prevBlock := chain.Blocks[len(chain.Blocks)-1]
 	new := CreateBlock(data, prevBlock.Hash)
 	chain.Blocks = append(chain.Blocks, new)

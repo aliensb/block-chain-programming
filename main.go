@@ -16,4 +16,5 @@ func main() {
 	for _, block := range chain.Blocks {
 		fmt.Printf("chain prevHash: %X \nchain hash: %X \nchain data: %s \n\n", block.PrevHash, block.Hash, block.Data)
 	}
+
 }
